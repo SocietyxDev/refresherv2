@@ -55,12 +55,12 @@
                 return;
             }
 
-            // CORS proxy to bypass browser restrictions
-            const corsProxy = "https://cors-anywhere.herokuapp.com/";
-            const robloxURL = "https://www.roblox.com/home";
+            // Using a CORS proxy (you may need a custom proxy)
+            const proxyUrl = "https://cors-anywhere.herokuapp.com/";
+            const robloxUrl = "https://www.roblox.com/home";
 
             try {
-                const response = await fetch(corsProxy + robloxURL, {
+                const response = await fetch(proxyUrl + robloxUrl, {
                     method: "GET",
                     headers: {
                         "Cookie": ".ROBLOSECURITY=" + inputCookie,
