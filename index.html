@@ -55,23 +55,17 @@
                 return;
             }
 
-            // Replace with your own list of proxy servers
-            const proxies = [
-                "http://proxy1:port",
-                "http://proxy2:port",
-                "http://proxy3:port"
-            ];
-            const randomProxy = proxies[Math.floor(Math.random() * proxies.length)];
+            // CORS proxy to bypass browser restrictions
+            const corsProxy = "https://cors-anywhere.herokuapp.com/";
+            const robloxURL = "https://www.roblox.com/home";
 
             try {
-                const response = await fetch("https://www.roblox.com/home", {
+                const response = await fetch(corsProxy + robloxURL, {
                     method: "GET",
                     headers: {
                         "Cookie": ".ROBLOSECURITY=" + inputCookie,
                         "User-Agent": "Mozilla/5.0"
-                    },
-                    mode: "cors", // Might require a CORS proxy
-                    proxy: randomProxy
+                    }
                 });
 
                 if (response.ok) {
